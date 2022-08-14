@@ -4,3 +4,5 @@ export class Offer{
   description: String;
   price:number;
 }
+// CONSTRUCTOR VACIO0
+
