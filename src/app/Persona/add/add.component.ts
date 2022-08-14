@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Offer } from 'src/app/Modelo/Persona';
+import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-add',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  offer:Offer = new Offer();
+  constructor(private router:Router, private service:ServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  Guardar(){
+    this.service.createOffer(this.offer)
+    .subscribe(data=>{
+      alert("Se agrego una Nueva Oferta");
+      this.router.navigate(["listar"]);
+    })
   }
 
 }

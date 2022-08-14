@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { Persona } from '../Modelo/Persona';
+import { Offer } from '../Modelo/Persona';
 
 
 @Injectable({
@@ -13,7 +13,19 @@ export class ServiceService {
 
   Url='http://localhost:8080/offers';
 
-  getPersonas(){
-    return this.http.get<Persona[]>(this.Url);
+  getOffers(){
+    return this.http.get<Offer[]>(this.Url);
+  }
+  createOffer(offer:Offer){
+    return this.http.post<Offer>(this.Url,offer);
+  }
+  getOfferId(id:number){
+    return this.http.get<Offer>(this.Url+"/"+id);
+  }
+  updateOffer(offer:Offer){
+    return this.http.put<Offer>(this.Url+"/"+offer.id,offer);
+  }
+  deleteOffer(offer:Offer){
+    return this.http.delete<Offer>(this.Url+"/"+offer.id);
   }
 }

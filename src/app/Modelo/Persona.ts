@@ -1,5 +1,5 @@
-export class Persona{
-  id: String;
+export class Offer{
+  id: number;
   name: String;
   description: String;
   price:number;
