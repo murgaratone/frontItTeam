@@ -11,7 +11,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 export class EditarComponent implements OnInit {
 offer: Offer=new Offer();
   constructor(private router:Router, private service:ServiceService) { }
-
+  error=false;
   ngOnInit(): void {
     this.Editar();
   }
@@ -24,13 +24,24 @@ offer: Offer=new Offer();
       })
 
   }
-  Actualizar(offer:Offer){
-    this.service.updateOffer(offer)
-    .subscribe(data=>{
-      this.offer=data;
-      alert("Se Actualizo con Exito...!!!");
-      this.router.navigate(["listar"]);
-    })
+  Actualizar(){
+    if(this.offer.description && this.offer.name && this.offer.price){
+        this.error=false;
+        this.service.createOffer(this.offer)
+          .subscribe(data=>{
+          this.offer.description="";
+          this.offer.name="";
+          this.offer.price=null;
+          alert("Se actualizaron con exito los datos");
+        this.router.navigate(["listar"]);
+      })
+    }
+    else{
+      this.error=true;
+    }
+  }
+  resetError(){
+    this.error=false
   }
 
 }
