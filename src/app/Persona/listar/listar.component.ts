@@ -20,15 +20,15 @@ export class ListarComponent implements OnInit {
       this.offers=data
     })
   }
-  Editar(persona:Offer):void{
-    localStorage.setItem("id",persona.id.toString());
-    this.router.navigate(["edit"]);
+  Editar(offer:Offer):void{
+    localStorage.setItem("id",offer.id.toString());
+    this.router.navigate(["editar"]);
   }
-Offerte(persona:Offer){
-    this.service.deleteOffer(persona)
-    .subscribe(data=>{
-      this.offers=this.offers.filter(p=>p!==persona);
-      alert("Usuario eliminado...");
-    })
+  Delete(offer:Offer){
+      this.service.deleteOffer(offer)
+      .subscribe(data=>{
+        this.offers=this.offers.filter(p=>p!==offer);
+        alert("Usuario eliminado con exito");
+      })
   }
 }

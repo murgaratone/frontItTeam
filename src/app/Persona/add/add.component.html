@@ -5,21 +5,22 @@
     </div>
     <!-- REVISAR CON NGMODEL -->
     <div class="card-body">
-      <form action=" ">
+      <form>
         <div class="form-group">
           <label for="">nombre</label>
-          <input ng-model-options="offer.name" name="name" type="text" class="form-control">
+          <input (focus)="resetError()" [(ngModel)]="offer.name" name="name" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
           <label for="">descripccion</label>
-          <input ng-model-options="offer.description" desciption="description" type="text" class="form-control">
+          <input (focus)="resetError()" [(ngModel)]="offer.description" type="text" class="form-control"[ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
           <label for="">price</label>
-          <input ng-model-options="offer.description" price="price" type="number" class="form-control">
+          <input (focus)="resetError()" [(ngModel)]="offer.price" type="number" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
         <button (click)="Guardar()" class="btn btn-danger">Guardar</button>
       </form>
+      <p *ngIf="error" style="color: red;">Por favor rellene todos los campos.</p>
     </div>
   </div>
 </div>
