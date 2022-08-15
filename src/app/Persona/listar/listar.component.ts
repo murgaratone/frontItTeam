@@ -22,13 +22,13 @@ export class ListarComponent implements OnInit {
   }
   Editar(offer:Offer):void{
     localStorage.setItem("id",offer.id.toString());
-    this.router.navigate(["editar"]);
+    this.router.navigate(["edit"]);
   }
   Delete(offer:Offer){
       this.service.deleteOffer(offer)
       .subscribe(data=>{
         this.offers=this.offers.filter(p=>p!==offer);
-        alert("Usuario eliminado con exito");
+        alert("Usuario eliminado ");
       })
   }
 }
