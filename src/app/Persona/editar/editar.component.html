@@ -1,23 +1,23 @@
 <div class="container col-md-6">
-  <div class="card">
+  <div class="card mb-4">
     <div class="card-header">
       <h3>Modificar Ofertas</h3>
     </div>
     <div class="card-body">
       <form action="">
         <div class="form-group">
-          <label for="">nombre</label>
+          <label for="">Nombre</label>
           <input (focus)="resetError()" [(ngModel)]="offer.name" name="name" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
-          <label for="">descripccion</label>
+          <label for="">Descripccion</label>
           <input (focus)="resetError()" [(ngModel)]="offer.description" type="text" class="form-control"[ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
-          <label for="">price</label>
+          <label for="">Price</label>
           <input (focus)="resetError()" [(ngModel)]="offer.price" type="number" class="form-control" [ngModelOptions]="{standalone: true}">
         </div>
-        <button (click)="Actualizar()" class="btn btn-danger">Actualizar</button>
+        <button (click)="Actualizar()" class="btn mt-4"style="background-color: #1b8cce;color: aqua;font-weight: 500;">Actualizar</button>
       </form>
     </div>
   </div>
