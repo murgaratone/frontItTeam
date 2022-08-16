@@ -11,7 +11,7 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/offers';
+  Url='https://back-spring-it-team.herokuapp.com/offers';
 
   getOffers(){
     return this.http.get<Offer[]>(this.Url);
